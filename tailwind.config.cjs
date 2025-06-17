@@ -1,8 +1,8 @@
 module.exports = {
-	purge: {
-		content: ["./components/**/*.{js,ts,jsx,tsx}", "./pages/**/*.{js,md}"],
-		layers: ["base", "utilities"],
-	},
+	content: [
+    './pages/**/*.{js,ts,jsx,tsx,md,mdx}',
+    './components/**/*.{js,ts,jsx,tsx,md,mdx}',
+  ],
 	theme: {
 		latex: {
 			footnotes: true,

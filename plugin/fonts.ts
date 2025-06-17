@@ -1,4 +1,4 @@
-exports.fonts = {
+export const fonts: { [key: string]: { [key: string]: string }[] } = {
 	"@font-face": [
 		{
 			"font-family": "'Latin Modern'",

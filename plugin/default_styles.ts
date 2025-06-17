@@ -1,14 +1,27 @@
-const round = (num) =>
+const round = (num: number) =>
 	num
-		.toFixed(7)
-		.replace(/(\.[0-9]+?)0+$/, "$1")
-		.replace(/\.0$/, "");
-const em = (px, base) => `${round(px / base)}em`;
+		.toPrecision(15)
+		.replace(/\.0+$/, "")
+		.replace(/\.(\d*?)0+$/, ".$1");
+const em = (px: number, base: number) => `${round(px / base)}em`;
 
-exports.base = {
-	p: {
-		textAlign: "justify",
-		hyphens: "none",
+const styles: { [key: string]: any } = {};
+
+export const base = styles;
+styles.p = {
+	textAlign: "justify",
+	hyphens: "none",
+	marginTop: "1rem",
+};
+styles["a:not([class])"] = {
+	textDecorationSkipInk: "auto",
+};
+styles.a = {
+	color: "#a00",
+	"&:visited": { color: "#a00" },
+	"&:focus": {
+		outlineOffset: "2px",
+		outline: "2px solid hsl(220, 90%, 52%)",
 		marginTop: "1rem",
 	},
 	"a:not([class])": {
@@ -257,12 +270,12 @@ exports.base = {
 	},
 };
 
-exports.utilities = {
+export const utilities = {
 	".scroll-wrapper": { overflowX: "auto" },
 	".scroll-wrapper > table td": { whiteSpace: "nowrap" },
 };
 
-exports.components = {
+export const components = {
 	".theorem": {
 		counterIncrement: "theorem",
 		display: "block",

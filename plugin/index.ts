@@ -1,8 +1,9 @@
-const plugin = require("tailwindcss/plugin");
-const { base, utilities, components } = require("./default_styles");
-const { fonts } = require("./fonts");
-const { syntax_base, syntax_components } = require("./syntax");
-function prefix(inobj, prefix) {
+import plugin from 'tailwindcss/plugin';
+import { base, utilities, components } from "./default_styles";
+import { fonts } from "./fonts";
+import { syntax_base, syntax_components } from "./syntax";
+
+function prefix(inobj: { [key: string]: any }, prefix: string): { [key: string]: any } {
 	let replacedItems = Object.keys(inobj).map((key) => {
 		const newKey = prefix + key;
 		return {
@@ -48,12 +49,7 @@ var components_output = {
 	...prefix(components, ".latex-style "),
 };
 
-module.exports = plugin(function ({
-	addBase,
-	addUtilities,
-	addComponents,
-	theme,
-}) {
+module.exports = plugin(function ({ addBase, addUtilities, addComponents, theme }: { addBase: Function, addUtilities: Function, addComponents: Function, theme: Function }) {
 	const options = theme("latex", {});
 	if (options["footnotes"]) {
 		base_output = Object.assign(base_output, prefix(base, ".footnotes "));

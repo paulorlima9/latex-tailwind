@@ -1,4 +1,4 @@
-exports.syntax_base = {
+export const syntax_base: { [key: string]: any } = {
 	"code[class*='language-'],pre[class*='language-']": {
 		color: "black",
 		textAlign: "left",
@@ -12,7 +12,7 @@ exports.syntax_base = {
 	},
 };
 
-exports.syntax_components = {
+export const syntax_components: { [key: string]: any } = {
 	".token.comment": {
 		color: "#407f80",
 	},
@@ -78,6 +78,7 @@ exports.syntax_components = {
 	},
 	".token.entity": {
 		color: "#9a6e3a",
+		fontStyle: "italic",
 	},
 	".token.url": {
 		color: "#9a6e3a",
@@ -113,7 +114,5 @@ exports.syntax_components = {
 	".token.bold": {
 		fontWeight: "bold",
 	},
-	".token.entity": {
-		fontStyle: "italic",
-	},
+
 };
